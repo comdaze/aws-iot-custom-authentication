@@ -1,0 +1,13 @@
+/**
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: Apache-2.0.
+ */
+import * as platform from './common/platform';
+import * as resource_safety from './common/resource_safety';
+import * as io from './browser/io';
+import * as mqtt from './browser/mqtt';
+import * as http from './browser/http';
+import * as crypto from './browser/crypto';
+import * as iot from './browser/aws_iot';
+import { CrtError } from './browser/error';
+export { io, mqtt, http, crypto, iot, platform, resource_safety, CrtError };

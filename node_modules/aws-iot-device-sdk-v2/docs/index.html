@@ -1,0 +1,245 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>aws-iot-device-sdk-v2 - v1.0.0-dev</title>
+	<meta name="description" content="Documentation for aws-iot-device-sdk-v2 - v1.0.0-dev">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">aws-iot-device-sdk-v2 - v1.0.0-dev</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1>aws-iot-device-sdk-v2 - v1.0.0-dev</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#aws-iot-sdk-for-javascript-v2" id="aws-iot-sdk-for-javascript-v2" style="color: inherit; text-decoration: none;">
+					<h1>AWS IoT SDK for Javascript v2</h1>
+				</a>
+				<p>This document provides information about the AWS IoT device SDK for Javascript V2.</p>
+				<p>If you have any issues or feature requests, please file an issue or pull request.</p>
+				<p>This SDK is built on the AWS Common Runtime, a collection of libraries
+					(<a href="https://github.com/awslabs/aws-c-common">aws-c-common</a>,
+					<a href="https://github.com/awslabs/aws-c-io">aws-c-io</a>,
+					<a href="https://github.com/awslabs/aws-c-mqtt">aws-c-mqtt</a>,
+					<a href="https://github.com/awslabs/aws-c-http">aws-c-http</a>,
+					<a href="https://github.com/awslabs/aws-c-cal">aws-c-cal</a> ...) written in C to be
+					cross-platform, high-performance, secure, and reliable. The libraries are bound
+				to JS by the <a href="https://github.com/awslabs/aws-crt-nodejs">awscrt</a> package.</p>
+				<p><em><strong>Jump To:</strong></em></p>
+				<ul>
+					<li><a href="#Installation">Installation</a></li>
+					<li><a href="#Mac-Only-TLS-Behavior">Mac-Only TLS Behavior</a></li>
+					<li><a href="samples">Samples</a></li>
+					<li><a href="#Getting-Help">Getting Help</a></li>
+					<li><a href="#Giving-Feedback-and-Contributions">Giving Feedback and Contributions</a></li>
+					<li><a href="#More-Resources">More Resources</a></li>
+				</ul>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
+				</a>
+				<a href="#minimum-requirements" id="minimum-requirements" style="color: inherit; text-decoration: none;">
+					<h3>Minimum Requirements</h3>
+				</a>
+				<ul>
+					<li>Node 10.x+</li>
+				</ul>
+				<a href="#common-run-time" id="common-run-time" style="color: inherit; text-decoration: none;">
+					<h3>Common Run Time</h3>
+				</a>
+				<p>The aws-crt package can be installed via npm </p>
+				<pre><code>npm <span class="hljs-keyword">install</span> aws-crt</code></pre>
+				<a href="#install-from-npm" id="install-from-npm" style="color: inherit; text-decoration: none;">
+					<h3>Install from npm</h3>
+				</a>
+				<pre><code><span class="hljs-attribute">npm</span> install aws-iot-device-sdk-v<span class="hljs-number">2</span></code></pre>
+				<a href="#build-from-source" id="build-from-source" style="color: inherit; text-decoration: none;">
+					<h3>Build from source</h3>
+				</a>
+				<pre><code>npm <span class="hljs-keyword">install</span></code></pre>
+				<a href="#mac-only-tls-behavior" id="mac-only-tls-behavior" style="color: inherit; text-decoration: none;">
+					<h2>Mac-Only TLS Behavior</h2>
+				</a>
+				<p>Please note that on Mac, once a private key is used with a certificate, that certificate-key pair is imported into the Mac Keychain.  All subsequent uses of that certificate will use the stored private key and ignore anything passed in programmatically.  Beginning in v1.2.4, when a stored private key from the Keychain is used, the following will be logged at the &quot;info&quot; log level:</p>
+				<pre><code>static: certificate has <span class="hljs-keyword">an</span> existing certificate-key pair that was previously imported <span class="hljs-keyword">into</span> <span class="hljs-keyword">the</span> Keychain.  Using key <span class="hljs-built_in">from</span> Keychain instead <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> <span class="hljs-literal">one</span> provided.</code></pre>
+				<a href="#samples" id="samples" style="color: inherit; text-decoration: none;">
+					<h2>Samples</h2>
+				</a>
+				<p><a href="samples">Samples README</a></p>
+				<a href="#getting-help" id="getting-help" style="color: inherit; text-decoration: none;">
+					<h2>Getting Help</h2>
+				</a>
+				<p>Use the following sources for information :</p>
+				<ul>
+					<li>Check api and developer guides.</li>
+					<li>Check for similar issues already opened.</li>
+				</ul>
+				<p>If you still can’t find a solution to your problem open an <a href="https://github.com/aws/aws-iot-device-sdk-js-v2/issues">issue</a></p>
+				<a href="#giving-feedback-and-contributions" id="giving-feedback-and-contributions" style="color: inherit; text-decoration: none;">
+					<h2>Giving Feedback and Contributions</h2>
+				</a>
+				<p>We need your help in making this SDK great. Please participate in the community and contribute to this effort by submitting issues, participating in discussion forums and submitting pull requests through the following channels.</p>
+				<ul>
+					<li><a href="master/CONTRIBUTING.md">Contributions Guidelines</a></li>
+					<li>Articulate your feature request or upvote existing ones on our <a href="https://github.com/aws/aws-iot-device-sdk-js-v2/issues?q=is%3Aissue+is%3Aopen+label%3Afeature-request">Issues</a> page.</li>
+					<li>Submit <a href="https://github.com/aws/aws-iot-device-sdk-js-v2/issues">Issues</a></li>
+				</ul>
+				<a href="#more-resources" id="more-resources" style="color: inherit; text-decoration: none;">
+					<h2>More Resources</h2>
+				</a>
+				<ul>
+					<li><a href="https://docs.aws.amazon.com/iot/">AWS IoT Core Documentation</a></li>
+					<li><a href="https://docs.aws.amazon.com/iot/latest/developerguide/what-is-aws-iot.html">Developer Guide</a> (<a href="https://github.com/awsdocs/aws-iot-docs">source</a>)</li>
+					<li><a href="https://github.com/aws/aws-iot-device-sdk-js-v2/issues">Issues</a></li>
+					<li><a href="https://aws.amazon.com/blogs/?awsf.blog-master-iot=category-internet-of-things%23amazon-freertos%7Ccategory-internet-of-things%23aws-greengrass%7Ccategory-internet-of-things%23aws-iot-analytics%7Ccategory-internet-of-things%23aws-iot-button%7Ccategory-internet-of-things%23aws-iot-device-defender%7Ccategory-internet-of-things%23aws-iot-device-management%7Ccategory-internet-of-things%23aws-iot-platform">Dev Blog</a></li>
+					<li><a href="https://aws.github.io/aws-iot-device-sdk-js-v2/globals.html">API Documentation</a></li>
+				</ul>
+				<p>Integration with AWS IoT Services such as
+					<a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html">Device Shadow</a>
+					and <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-jobs.html">Jobs</a>
+				is provided by code that been generated from a model of the service.</p>
+				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
+					<h1>License</h1>
+				</a>
+				<p>This library is licensed under the Apache 2.0 License.</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/aws_crt.html">aws-<wbr>crt</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/aws_iot_device_sdk.html">aws-<wbr>iot-<wbr>device-<wbr>sdk</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-enum">
+						<a href="enums/awssignaturetype.html" class="tsd-kind-icon">Aws<wbr>Signature<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/awssignedbodyheadertype.html" class="tsd-kind-icon">Aws<wbr>Signed<wbr>Body<wbr>Header<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/awssignedbodyvalue.html" class="tsd-kind-icon">Aws<wbr>Signed<wbr>Body<wbr>Value</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/httprequest.html" class="tsd-kind-icon">Http<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/httprequest.html" class="tsd-kind-icon">Http<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/awssigningconfig.html" class="tsd-kind-icon">Aws<wbr>Signing<wbr>Config</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/websocketconfig.html" class="tsd-kind-icon">Websocket<wbr>Config</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#httpheaders" class="tsd-kind-icon">Http<wbr>Headers</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#stringlike" class="tsd-kind-icon">String<wbr>Like</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#httpheaders" class="tsd-kind-icon">Http<wbr>Headers</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#error_code_to_name" class="tsd-kind-icon">error_<wbr>code_<wbr>to_<wbr>name</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#error_code_to_string" class="tsd-kind-icon">error_<wbr>code_<wbr>to_<wbr>string</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

@@ -1,0 +1,350 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree"
+      },
+      "JwtIotCustomAuthorizerStack": {
+        "id": "JwtIotCustomAuthorizerStack",
+        "path": "JwtIotCustomAuthorizerStack",
+        "children": {
+          "username": {
+            "id": "username",
+            "path": "JwtIotCustomAuthorizerStack/username"
+          },
+          "password": {
+            "id": "password",
+            "path": "JwtIotCustomAuthorizerStack/password"
+          },
+          "token": {
+            "id": "token",
+            "path": "JwtIotCustomAuthorizerStack/token"
+          },
+          "iot-custom-auth": {
+            "id": "iot-custom-auth",
+            "path": "JwtIotCustomAuthorizerStack/iot-custom-auth",
+            "children": {
+              "ServiceRole": {
+                "id": "ServiceRole",
+                "path": "JwtIotCustomAuthorizerStack/iot-custom-auth/ServiceRole",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "JwtIotCustomAuthorizerStack/iot-custom-auth/ServiceRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                              ]
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              "Code": {
+                "id": "Code",
+                "path": "JwtIotCustomAuthorizerStack/iot-custom-auth/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "JwtIotCustomAuthorizerStack/iot-custom-auth/Code/Stage"
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "JwtIotCustomAuthorizerStack/iot-custom-auth/Code/AssetBucket"
+                  }
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "JwtIotCustomAuthorizerStack/iot-custom-auth/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "s3Bucket": {
+                        "Ref": "AssetParameterse0eb358733b9110cd7375155a65d30b763648cd8f4f00617eafdad0f0f6606e0S3Bucket30E7C93C"
+                      },
+                      "s3Key": {
+                        "Fn::Join": [
+                          "",
+                          [
+                            {
+                              "Fn::Select": [
+                                0,
+                                {
+                                  "Fn::Split": [
+                                    "||",
+                                    {
+                                      "Ref": "AssetParameterse0eb358733b9110cd7375155a65d30b763648cd8f4f00617eafdad0f0f6606e0S3VersionKeyC9BDD468"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "Fn::Select": [
+                                1,
+                                {
+                                  "Fn::Split": [
+                                    "||",
+                                    {
+                                      "Ref": "AssetParameterse0eb358733b9110cd7375155a65d30b763648cd8f4f00617eafdad0f0f6606e0S3VersionKeyC9BDD468"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        ]
+                      }
+                    },
+                    "role": {
+                      "Fn::GetAtt": [
+                        "iotcustomauthServiceRoleEEC43227",
+                        "Arn"
+                      ]
+                    },
+                    "environment": {
+                      "variables": {
+                        "AWS_ACCOUNT": {
+                          "Ref": "AWS::AccountId"
+                        }
+                      }
+                    },
+                    "handler": "lambda.handler",
+                    "runtime": "nodejs12.x"
+                  }
+                }
+              }
+            }
+          },
+          "AssetParameters": {
+            "id": "AssetParameters",
+            "path": "JwtIotCustomAuthorizerStack/AssetParameters",
+            "children": {
+              "e0eb358733b9110cd7375155a65d30b763648cd8f4f00617eafdad0f0f6606e0": {
+                "id": "e0eb358733b9110cd7375155a65d30b763648cd8f4f00617eafdad0f0f6606e0",
+                "path": "JwtIotCustomAuthorizerStack/AssetParameters/e0eb358733b9110cd7375155a65d30b763648cd8f4f00617eafdad0f0f6606e0",
+                "children": {
+                  "S3Bucket": {
+                    "id": "S3Bucket",
+                    "path": "JwtIotCustomAuthorizerStack/AssetParameters/e0eb358733b9110cd7375155a65d30b763648cd8f4f00617eafdad0f0f6606e0/S3Bucket"
+                  },
+                  "S3VersionKey": {
+                    "id": "S3VersionKey",
+                    "path": "JwtIotCustomAuthorizerStack/AssetParameters/e0eb358733b9110cd7375155a65d30b763648cd8f4f00617eafdad0f0f6606e0/S3VersionKey"
+                  },
+                  "ArtifactHash": {
+                    "id": "ArtifactHash",
+                    "path": "JwtIotCustomAuthorizerStack/AssetParameters/e0eb358733b9110cd7375155a65d30b763648cd8f4f00617eafdad0f0f6606e0/ArtifactHash"
+                  }
+                }
+              },
+              "b327ff16bfc8423a799a23eceaeea670c8744c46d212f0aeac64314dc479c907": {
+                "id": "b327ff16bfc8423a799a23eceaeea670c8744c46d212f0aeac64314dc479c907",
+                "path": "JwtIotCustomAuthorizerStack/AssetParameters/b327ff16bfc8423a799a23eceaeea670c8744c46d212f0aeac64314dc479c907",
+                "children": {
+                  "S3Bucket": {
+                    "id": "S3Bucket",
+                    "path": "JwtIotCustomAuthorizerStack/AssetParameters/b327ff16bfc8423a799a23eceaeea670c8744c46d212f0aeac64314dc479c907/S3Bucket"
+                  },
+                  "S3VersionKey": {
+                    "id": "S3VersionKey",
+                    "path": "JwtIotCustomAuthorizerStack/AssetParameters/b327ff16bfc8423a799a23eceaeea670c8744c46d212f0aeac64314dc479c907/S3VersionKey"
+                  },
+                  "ArtifactHash": {
+                    "id": "ArtifactHash",
+                    "path": "JwtIotCustomAuthorizerStack/AssetParameters/b327ff16bfc8423a799a23eceaeea670c8744c46d212f0aeac64314dc479c907/ArtifactHash"
+                  }
+                }
+              }
+            }
+          },
+          "iot-custom-auth-mqtt": {
+            "id": "iot-custom-auth-mqtt",
+            "path": "JwtIotCustomAuthorizerStack/iot-custom-auth-mqtt",
+            "children": {
+              "ServiceRole": {
+                "id": "ServiceRole",
+                "path": "JwtIotCustomAuthorizerStack/iot-custom-auth-mqtt/ServiceRole",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "JwtIotCustomAuthorizerStack/iot-custom-auth-mqtt/ServiceRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                              ]
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              "Code": {
+                "id": "Code",
+                "path": "JwtIotCustomAuthorizerStack/iot-custom-auth-mqtt/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "JwtIotCustomAuthorizerStack/iot-custom-auth-mqtt/Code/Stage"
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "JwtIotCustomAuthorizerStack/iot-custom-auth-mqtt/Code/AssetBucket"
+                  }
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "JwtIotCustomAuthorizerStack/iot-custom-auth-mqtt/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "s3Bucket": {
+                        "Ref": "AssetParametersb327ff16bfc8423a799a23eceaeea670c8744c46d212f0aeac64314dc479c907S3Bucket48B86FDB"
+                      },
+                      "s3Key": {
+                        "Fn::Join": [
+                          "",
+                          [
+                            {
+                              "Fn::Select": [
+                                0,
+                                {
+                                  "Fn::Split": [
+                                    "||",
+                                    {
+                                      "Ref": "AssetParametersb327ff16bfc8423a799a23eceaeea670c8744c46d212f0aeac64314dc479c907S3VersionKey7AC6450C"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "Fn::Select": [
+                                1,
+                                {
+                                  "Fn::Split": [
+                                    "||",
+                                    {
+                                      "Ref": "AssetParametersb327ff16bfc8423a799a23eceaeea670c8744c46d212f0aeac64314dc479c907S3VersionKey7AC6450C"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        ]
+                      }
+                    },
+                    "role": {
+                      "Fn::GetAtt": [
+                        "iotcustomauthmqttServiceRoleF89F8C6D",
+                        "Arn"
+                      ]
+                    },
+                    "environment": {
+                      "variables": {
+                        "AWS_ACCOUNT": {
+                          "Ref": "AWS::AccountId"
+                        },
+                        "USERNAME": {
+                          "Ref": "username"
+                        },
+                        "PASSWORD": {
+                          "Ref": "password"
+                        },
+                        "TOKEN": {
+                          "Ref": "token"
+                        }
+                      }
+                    },
+                    "handler": "lambda.handler",
+                    "runtime": "nodejs12.x"
+                  }
+                }
+              }
+            }
+          },
+          "lambdaArn": {
+            "id": "lambdaArn",
+            "path": "JwtIotCustomAuthorizerStack/lambdaArn"
+          },
+          "lambdaArnMqtt": {
+            "id": "lambdaArnMqtt",
+            "path": "JwtIotCustomAuthorizerStack/lambdaArnMqtt"
+          },
+          "CDKMetadata": {
+            "id": "CDKMetadata",
+            "path": "JwtIotCustomAuthorizerStack/CDKMetadata",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "JwtIotCustomAuthorizerStack/CDKMetadata/Default"
+              },
+              "Condition": {
+                "id": "Condition",
+                "path": "JwtIotCustomAuthorizerStack/CDKMetadata/Condition"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

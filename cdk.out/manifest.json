@@ -1,0 +1,569 @@
+{
+  "version": "8.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "JwtIotCustomAuthorizerStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "JwtIotCustomAuthorizerStack.template.json"
+      },
+      "metadata": {
+        "/JwtIotCustomAuthorizerStack": [
+          {
+            "type": "aws:cdk:asset",
+            "data": {
+              "path": "asset.e0eb358733b9110cd7375155a65d30b763648cd8f4f00617eafdad0f0f6606e0",
+              "id": "e0eb358733b9110cd7375155a65d30b763648cd8f4f00617eafdad0f0f6606e0",
+              "packaging": "zip",
+              "sourceHash": "e0eb358733b9110cd7375155a65d30b763648cd8f4f00617eafdad0f0f6606e0",
+              "s3BucketParameter": "AssetParameterse0eb358733b9110cd7375155a65d30b763648cd8f4f00617eafdad0f0f6606e0S3Bucket30E7C93C",
+              "s3KeyParameter": "AssetParameterse0eb358733b9110cd7375155a65d30b763648cd8f4f00617eafdad0f0f6606e0S3VersionKeyC9BDD468",
+              "artifactHashParameter": "AssetParameterse0eb358733b9110cd7375155a65d30b763648cd8f4f00617eafdad0f0f6606e0ArtifactHash226FE5D6"
+            },
+            "trace": [
+              "ConstructNode.addMetadata (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/construct-compat.ts:431:92)",
+              "LegacyStackSynthesizer.doAddFileAsset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:171:23)",
+              "LegacyStackSynthesizer.addFileAsset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:74:19)",
+              "JwtIotCustomAuthorizerStack.addFileAsset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/stack.ts:657:29)",
+              "LegacyStackSynthesizer.addFileAsset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:78:25)",
+              "new Asset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:151:40)",
+              "AssetCode.bind (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/aws-lambda/lib/code.ts:251:20)",
+              "new Function (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/aws-lambda/lib/function.ts:572:29)",
+              "new JwtIotCustomAuthorizerStack (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/lib/jwt-iot-custom-authorizer-stack.ts:40:34)",
+              "Object.<anonymous> (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/bin/jwt-iot-custom-authorizer.ts:7:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1109:14)",
+              "Module.m._compile (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1138:10)",
+              "Object.require.extensions.<computed> [as .ts] (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (node:internal/modules/cjs/loader:989:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:829:14)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)",
+              "main (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (node:internal/modules/cjs/loader:1109:14)",
+              "Object.Module._extensions..js (node:internal/modules/cjs/loader:1138:10)",
+              "Module.load (node:internal/modules/cjs/loader:989:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:829:14)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)",
+              "node:internal/main/run_main_module:17:47"
+            ]
+          },
+          {
+            "type": "aws:cdk:asset",
+            "data": {
+              "path": "asset.b327ff16bfc8423a799a23eceaeea670c8744c46d212f0aeac64314dc479c907",
+              "id": "b327ff16bfc8423a799a23eceaeea670c8744c46d212f0aeac64314dc479c907",
+              "packaging": "zip",
+              "sourceHash": "b327ff16bfc8423a799a23eceaeea670c8744c46d212f0aeac64314dc479c907",
+              "s3BucketParameter": "AssetParametersb327ff16bfc8423a799a23eceaeea670c8744c46d212f0aeac64314dc479c907S3Bucket48B86FDB",
+              "s3KeyParameter": "AssetParametersb327ff16bfc8423a799a23eceaeea670c8744c46d212f0aeac64314dc479c907S3VersionKey7AC6450C",
+              "artifactHashParameter": "AssetParametersb327ff16bfc8423a799a23eceaeea670c8744c46d212f0aeac64314dc479c907ArtifactHashC77B7AFE"
+            },
+            "trace": [
+              "ConstructNode.addMetadata (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/construct-compat.ts:431:92)",
+              "LegacyStackSynthesizer.doAddFileAsset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:171:23)",
+              "LegacyStackSynthesizer.addFileAsset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:74:19)",
+              "JwtIotCustomAuthorizerStack.addFileAsset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/stack.ts:657:29)",
+              "LegacyStackSynthesizer.addFileAsset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:78:25)",
+              "new Asset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:151:40)",
+              "AssetCode.bind (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/aws-lambda/lib/code.ts:251:20)",
+              "new Function (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/aws-lambda/lib/function.ts:572:29)",
+              "new JwtIotCustomAuthorizerStack (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/lib/jwt-iot-custom-authorizer-stack.ts:49:38)",
+              "Object.<anonymous> (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/bin/jwt-iot-custom-authorizer.ts:7:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1109:14)",
+              "Module.m._compile (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1138:10)",
+              "Object.require.extensions.<computed> [as .ts] (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (node:internal/modules/cjs/loader:989:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:829:14)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)",
+              "main (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (node:internal/modules/cjs/loader:1109:14)",
+              "Object.Module._extensions..js (node:internal/modules/cjs/loader:1138:10)",
+              "Module.load (node:internal/modules/cjs/loader:989:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:829:14)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)",
+              "node:internal/main/run_main_module:17:47"
+            ]
+          }
+        ],
+        "/JwtIotCustomAuthorizerStack/username": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "username",
+            "trace": [
+              "new JwtIotCustomAuthorizerStack (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/lib/jwt-iot-custom-authorizer-stack.ts:25:20)",
+              "Object.<anonymous> (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/bin/jwt-iot-custom-authorizer.ts:7:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1109:14)",
+              "Module.m._compile (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1138:10)",
+              "Object.require.extensions.<computed> [as .ts] (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (node:internal/modules/cjs/loader:989:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:829:14)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)",
+              "main (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (node:internal/modules/cjs/loader:1109:14)",
+              "Object.Module._extensions..js (node:internal/modules/cjs/loader:1138:10)",
+              "Module.load (node:internal/modules/cjs/loader:989:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:829:14)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)",
+              "node:internal/main/run_main_module:17:47"
+            ]
+          }
+        ],
+        "/JwtIotCustomAuthorizerStack/password": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "password",
+            "trace": [
+              "new JwtIotCustomAuthorizerStack (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/lib/jwt-iot-custom-authorizer-stack.ts:30:20)",
+              "Object.<anonymous> (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/bin/jwt-iot-custom-authorizer.ts:7:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1109:14)",
+              "Module.m._compile (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1138:10)",
+              "Object.require.extensions.<computed> [as .ts] (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (node:internal/modules/cjs/loader:989:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:829:14)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)",
+              "main (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (node:internal/modules/cjs/loader:1109:14)",
+              "Object.Module._extensions..js (node:internal/modules/cjs/loader:1138:10)",
+              "Module.load (node:internal/modules/cjs/loader:989:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:829:14)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)",
+              "node:internal/main/run_main_module:17:47"
+            ]
+          }
+        ],
+        "/JwtIotCustomAuthorizerStack/token": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "token",
+            "trace": [
+              "new JwtIotCustomAuthorizerStack (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/lib/jwt-iot-custom-authorizer-stack.ts:35:17)",
+              "Object.<anonymous> (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/bin/jwt-iot-custom-authorizer.ts:7:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1109:14)",
+              "Module.m._compile (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1138:10)",
+              "Object.require.extensions.<computed> [as .ts] (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (node:internal/modules/cjs/loader:989:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:829:14)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)",
+              "main (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (node:internal/modules/cjs/loader:1109:14)",
+              "Object.Module._extensions..js (node:internal/modules/cjs/loader:1138:10)",
+              "Module.load (node:internal/modules/cjs/loader:989:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:829:14)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)",
+              "node:internal/main/run_main_module:17:47"
+            ]
+          }
+        ],
+        "/JwtIotCustomAuthorizerStack/iot-custom-auth/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "iotcustomauthServiceRoleEEC43227",
+            "trace": [
+              "new Role (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/aws-iam/lib/role.ts:327:18)",
+              "new Function (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/aws-lambda/lib/function.ts:552:31)",
+              "new JwtIotCustomAuthorizerStack (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/lib/jwt-iot-custom-authorizer-stack.ts:40:34)",
+              "Object.<anonymous> (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/bin/jwt-iot-custom-authorizer.ts:7:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1109:14)",
+              "Module.m._compile (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1138:10)",
+              "Object.require.extensions.<computed> [as .ts] (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (node:internal/modules/cjs/loader:989:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:829:14)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)",
+              "main (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (node:internal/modules/cjs/loader:1109:14)",
+              "Object.Module._extensions..js (node:internal/modules/cjs/loader:1138:10)",
+              "Module.load (node:internal/modules/cjs/loader:989:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:829:14)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)",
+              "node:internal/main/run_main_module:17:47"
+            ]
+          }
+        ],
+        "/JwtIotCustomAuthorizerStack/iot-custom-auth/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "iotcustomauth599B8CB3",
+            "trace": [
+              "new Function (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/aws-lambda/lib/function.ts:614:35)",
+              "new JwtIotCustomAuthorizerStack (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/lib/jwt-iot-custom-authorizer-stack.ts:40:34)",
+              "Object.<anonymous> (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/bin/jwt-iot-custom-authorizer.ts:7:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1109:14)",
+              "Module.m._compile (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1138:10)",
+              "Object.require.extensions.<computed> [as .ts] (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (node:internal/modules/cjs/loader:989:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:829:14)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)",
+              "main (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (node:internal/modules/cjs/loader:1109:14)",
+              "Object.Module._extensions..js (node:internal/modules/cjs/loader:1138:10)",
+              "Module.load (node:internal/modules/cjs/loader:989:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:829:14)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)",
+              "node:internal/main/run_main_module:17:47"
+            ]
+          }
+        ],
+        "/JwtIotCustomAuthorizerStack/AssetParameters/e0eb358733b9110cd7375155a65d30b763648cd8f4f00617eafdad0f0f6606e0/S3Bucket": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameterse0eb358733b9110cd7375155a65d30b763648cd8f4f00617eafdad0f0f6606e0S3Bucket30E7C93C",
+            "trace": [
+              "new FileAssetParameters (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:16:32)",
+              "LegacyStackSynthesizer.doAddFileAsset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:154:16)",
+              "LegacyStackSynthesizer.addFileAsset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:74:19)",
+              "JwtIotCustomAuthorizerStack.addFileAsset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/stack.ts:657:29)",
+              "LegacyStackSynthesizer.addFileAsset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:78:25)",
+              "new Asset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:151:40)",
+              "AssetCode.bind (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/aws-lambda/lib/code.ts:251:20)",
+              "new Function (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/aws-lambda/lib/function.ts:572:29)",
+              "new JwtIotCustomAuthorizerStack (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/lib/jwt-iot-custom-authorizer-stack.ts:40:34)",
+              "Object.<anonymous> (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/bin/jwt-iot-custom-authorizer.ts:7:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1109:14)",
+              "Module.m._compile (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1138:10)",
+              "Object.require.extensions.<computed> [as .ts] (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (node:internal/modules/cjs/loader:989:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:829:14)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)",
+              "main (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (node:internal/modules/cjs/loader:1109:14)",
+              "Object.Module._extensions..js (node:internal/modules/cjs/loader:1138:10)",
+              "Module.load (node:internal/modules/cjs/loader:989:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:829:14)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)",
+              "node:internal/main/run_main_module:17:47"
+            ]
+          }
+        ],
+        "/JwtIotCustomAuthorizerStack/AssetParameters/e0eb358733b9110cd7375155a65d30b763648cd8f4f00617eafdad0f0f6606e0/S3VersionKey": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameterse0eb358733b9110cd7375155a65d30b763648cd8f4f00617eafdad0f0f6606e0S3VersionKeyC9BDD468",
+            "trace": [
+              "new FileAssetParameters (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:21:31)",
+              "LegacyStackSynthesizer.doAddFileAsset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:154:16)",
+              "LegacyStackSynthesizer.addFileAsset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:74:19)",
+              "JwtIotCustomAuthorizerStack.addFileAsset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/stack.ts:657:29)",
+              "LegacyStackSynthesizer.addFileAsset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:78:25)",
+              "new Asset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:151:40)",
+              "AssetCode.bind (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/aws-lambda/lib/code.ts:251:20)",
+              "new Function (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/aws-lambda/lib/function.ts:572:29)",
+              "new JwtIotCustomAuthorizerStack (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/lib/jwt-iot-custom-authorizer-stack.ts:40:34)",
+              "Object.<anonymous> (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/bin/jwt-iot-custom-authorizer.ts:7:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1109:14)",
+              "Module.m._compile (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1138:10)",
+              "Object.require.extensions.<computed> [as .ts] (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (node:internal/modules/cjs/loader:989:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:829:14)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)",
+              "main (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (node:internal/modules/cjs/loader:1109:14)",
+              "Object.Module._extensions..js (node:internal/modules/cjs/loader:1138:10)",
+              "Module.load (node:internal/modules/cjs/loader:989:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:829:14)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)",
+              "node:internal/main/run_main_module:17:47"
+            ]
+          }
+        ],
+        "/JwtIotCustomAuthorizerStack/AssetParameters/e0eb358733b9110cd7375155a65d30b763648cd8f4f00617eafdad0f0f6606e0/ArtifactHash": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameterse0eb358733b9110cd7375155a65d30b763648cd8f4f00617eafdad0f0f6606e0ArtifactHash226FE5D6",
+            "trace": [
+              "new FileAssetParameters (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:26:34)",
+              "LegacyStackSynthesizer.doAddFileAsset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:154:16)",
+              "LegacyStackSynthesizer.addFileAsset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:74:19)",
+              "JwtIotCustomAuthorizerStack.addFileAsset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/stack.ts:657:29)",
+              "LegacyStackSynthesizer.addFileAsset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:78:25)",
+              "new Asset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:151:40)",
+              "AssetCode.bind (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/aws-lambda/lib/code.ts:251:20)",
+              "new Function (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/aws-lambda/lib/function.ts:572:29)",
+              "new JwtIotCustomAuthorizerStack (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/lib/jwt-iot-custom-authorizer-stack.ts:40:34)",
+              "Object.<anonymous> (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/bin/jwt-iot-custom-authorizer.ts:7:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1109:14)",
+              "Module.m._compile (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1138:10)",
+              "Object.require.extensions.<computed> [as .ts] (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (node:internal/modules/cjs/loader:989:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:829:14)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)",
+              "main (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (node:internal/modules/cjs/loader:1109:14)",
+              "Object.Module._extensions..js (node:internal/modules/cjs/loader:1138:10)",
+              "Module.load (node:internal/modules/cjs/loader:989:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:829:14)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)",
+              "node:internal/main/run_main_module:17:47"
+            ]
+          }
+        ],
+        "/JwtIotCustomAuthorizerStack/AssetParameters/b327ff16bfc8423a799a23eceaeea670c8744c46d212f0aeac64314dc479c907/S3Bucket": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParametersb327ff16bfc8423a799a23eceaeea670c8744c46d212f0aeac64314dc479c907S3Bucket48B86FDB",
+            "trace": [
+              "new FileAssetParameters (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:16:32)",
+              "LegacyStackSynthesizer.doAddFileAsset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:154:16)",
+              "LegacyStackSynthesizer.addFileAsset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:74:19)",
+              "JwtIotCustomAuthorizerStack.addFileAsset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/stack.ts:657:29)",
+              "LegacyStackSynthesizer.addFileAsset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:78:25)",
+              "new Asset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:151:40)",
+              "AssetCode.bind (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/aws-lambda/lib/code.ts:251:20)",
+              "new Function (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/aws-lambda/lib/function.ts:572:29)",
+              "new JwtIotCustomAuthorizerStack (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/lib/jwt-iot-custom-authorizer-stack.ts:49:38)",
+              "Object.<anonymous> (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/bin/jwt-iot-custom-authorizer.ts:7:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1109:14)",
+              "Module.m._compile (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1138:10)",
+              "Object.require.extensions.<computed> [as .ts] (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (node:internal/modules/cjs/loader:989:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:829:14)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)",
+              "main (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (node:internal/modules/cjs/loader:1109:14)",
+              "Object.Module._extensions..js (node:internal/modules/cjs/loader:1138:10)",
+              "Module.load (node:internal/modules/cjs/loader:989:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:829:14)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)",
+              "node:internal/main/run_main_module:17:47"
+            ]
+          }
+        ],
+        "/JwtIotCustomAuthorizerStack/AssetParameters/b327ff16bfc8423a799a23eceaeea670c8744c46d212f0aeac64314dc479c907/S3VersionKey": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParametersb327ff16bfc8423a799a23eceaeea670c8744c46d212f0aeac64314dc479c907S3VersionKey7AC6450C",
+            "trace": [
+              "new FileAssetParameters (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:21:31)",
+              "LegacyStackSynthesizer.doAddFileAsset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:154:16)",
+              "LegacyStackSynthesizer.addFileAsset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:74:19)",
+              "JwtIotCustomAuthorizerStack.addFileAsset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/stack.ts:657:29)",
+              "LegacyStackSynthesizer.addFileAsset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:78:25)",
+              "new Asset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:151:40)",
+              "AssetCode.bind (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/aws-lambda/lib/code.ts:251:20)",
+              "new Function (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/aws-lambda/lib/function.ts:572:29)",
+              "new JwtIotCustomAuthorizerStack (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/lib/jwt-iot-custom-authorizer-stack.ts:49:38)",
+              "Object.<anonymous> (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/bin/jwt-iot-custom-authorizer.ts:7:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1109:14)",
+              "Module.m._compile (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1138:10)",
+              "Object.require.extensions.<computed> [as .ts] (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (node:internal/modules/cjs/loader:989:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:829:14)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)",
+              "main (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (node:internal/modules/cjs/loader:1109:14)",
+              "Object.Module._extensions..js (node:internal/modules/cjs/loader:1138:10)",
+              "Module.load (node:internal/modules/cjs/loader:989:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:829:14)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)",
+              "node:internal/main/run_main_module:17:47"
+            ]
+          }
+        ],
+        "/JwtIotCustomAuthorizerStack/AssetParameters/b327ff16bfc8423a799a23eceaeea670c8744c46d212f0aeac64314dc479c907/ArtifactHash": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParametersb327ff16bfc8423a799a23eceaeea670c8744c46d212f0aeac64314dc479c907ArtifactHashC77B7AFE",
+            "trace": [
+              "new FileAssetParameters (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/private/asset-parameters.ts:26:34)",
+              "LegacyStackSynthesizer.doAddFileAsset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:154:16)",
+              "LegacyStackSynthesizer.addFileAsset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:74:19)",
+              "JwtIotCustomAuthorizerStack.addFileAsset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/stack.ts:657:29)",
+              "LegacyStackSynthesizer.addFileAsset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.ts:78:25)",
+              "new Asset (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/aws-s3-assets/lib/asset.ts:151:40)",
+              "AssetCode.bind (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/aws-lambda/lib/code.ts:251:20)",
+              "new Function (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/aws-lambda/lib/function.ts:572:29)",
+              "new JwtIotCustomAuthorizerStack (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/lib/jwt-iot-custom-authorizer-stack.ts:49:38)",
+              "Object.<anonymous> (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/bin/jwt-iot-custom-authorizer.ts:7:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1109:14)",
+              "Module.m._compile (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1138:10)",
+              "Object.require.extensions.<computed> [as .ts] (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (node:internal/modules/cjs/loader:989:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:829:14)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)",
+              "main (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (node:internal/modules/cjs/loader:1109:14)",
+              "Object.Module._extensions..js (node:internal/modules/cjs/loader:1138:10)",
+              "Module.load (node:internal/modules/cjs/loader:989:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:829:14)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)",
+              "node:internal/main/run_main_module:17:47"
+            ]
+          }
+        ],
+        "/JwtIotCustomAuthorizerStack/iot-custom-auth-mqtt/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "iotcustomauthmqttServiceRoleF89F8C6D",
+            "trace": [
+              "new Role (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/aws-iam/lib/role.ts:327:18)",
+              "new Function (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/aws-lambda/lib/function.ts:552:31)",
+              "new JwtIotCustomAuthorizerStack (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/lib/jwt-iot-custom-authorizer-stack.ts:49:38)",
+              "Object.<anonymous> (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/bin/jwt-iot-custom-authorizer.ts:7:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1109:14)",
+              "Module.m._compile (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1138:10)",
+              "Object.require.extensions.<computed> [as .ts] (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (node:internal/modules/cjs/loader:989:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:829:14)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)",
+              "main (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (node:internal/modules/cjs/loader:1109:14)",
+              "Object.Module._extensions..js (node:internal/modules/cjs/loader:1138:10)",
+              "Module.load (node:internal/modules/cjs/loader:989:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:829:14)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)",
+              "node:internal/main/run_main_module:17:47"
+            ]
+          }
+        ],
+        "/JwtIotCustomAuthorizerStack/iot-custom-auth-mqtt/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "iotcustomauthmqttF4800FFB",
+            "trace": [
+              "new Function (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/aws-lambda/lib/function.ts:614:35)",
+              "new JwtIotCustomAuthorizerStack (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/lib/jwt-iot-custom-authorizer-stack.ts:49:38)",
+              "Object.<anonymous> (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/bin/jwt-iot-custom-authorizer.ts:7:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1109:14)",
+              "Module.m._compile (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1138:10)",
+              "Object.require.extensions.<computed> [as .ts] (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (node:internal/modules/cjs/loader:989:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:829:14)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)",
+              "main (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (node:internal/modules/cjs/loader:1109:14)",
+              "Object.Module._extensions..js (node:internal/modules/cjs/loader:1138:10)",
+              "Module.load (node:internal/modules/cjs/loader:989:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:829:14)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)",
+              "node:internal/main/run_main_module:17:47"
+            ]
+          }
+        ],
+        "/JwtIotCustomAuthorizerStack/lambdaArn": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "lambdaArn",
+            "trace": [
+              "new JwtIotCustomAuthorizerStack (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/lib/jwt-iot-custom-authorizer-stack.ts:61:5)",
+              "Object.<anonymous> (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/bin/jwt-iot-custom-authorizer.ts:7:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1109:14)",
+              "Module.m._compile (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1138:10)",
+              "Object.require.extensions.<computed> [as .ts] (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (node:internal/modules/cjs/loader:989:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:829:14)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)",
+              "main (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (node:internal/modules/cjs/loader:1109:14)",
+              "Object.Module._extensions..js (node:internal/modules/cjs/loader:1138:10)",
+              "Module.load (node:internal/modules/cjs/loader:989:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:829:14)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)",
+              "node:internal/main/run_main_module:17:47"
+            ]
+          }
+        ],
+        "/JwtIotCustomAuthorizerStack/lambdaArnMqtt": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "lambdaArnMqtt",
+            "trace": [
+              "new JwtIotCustomAuthorizerStack (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/lib/jwt-iot-custom-authorizer-stack.ts:66:5)",
+              "Object.<anonymous> (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/bin/jwt-iot-custom-authorizer.ts:7:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1109:14)",
+              "Module.m._compile (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/index.ts:858:23)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1138:10)",
+              "Object.require.extensions.<computed> [as .ts] (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/index.ts:861:12)",
+              "Module.load (node:internal/modules/cjs/loader:989:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:829:14)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)",
+              "main (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/bin.ts:227:14)",
+              "Object.<anonymous> (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/ts-node/src/bin.ts:513:3)",
+              "Module._compile (node:internal/modules/cjs/loader:1109:14)",
+              "Object.Module._extensions..js (node:internal/modules/cjs/loader:1138:10)",
+              "Module.load (node:internal/modules/cjs/loader:989:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:829:14)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)",
+              "node:internal/main/run_main_module:17:47"
+            ]
+          }
+        ],
+        "/JwtIotCustomAuthorizerStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata",
+            "trace": [
+              "new MetadataResource (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/private/metadata-resource.ts:51:24)",
+              "/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/private/synthesis.ts:140:5",
+              "visit (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/private/synthesis.ts:200:5)",
+              "visit (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/private/synthesis.ts:196:5)",
+              "injectMetadataResources (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/private/synthesis.ts:131:3)",
+              "Object.synthesize (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/private/synthesis.ts:18:3)",
+              "App.synth (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/stage.ts:188:23)",
+              "process.<anonymous> (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/app.ts:123:45)",
+              "Object.onceWrapper (node:events:514:26)",
+              "process.emit (node:events:394:28)",
+              "process.emit (node:domain:470:12)",
+              "process.emit (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/source-map-support/source-map-support.js:495:21)"
+            ]
+          }
+        ],
+        "/JwtIotCustomAuthorizerStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable",
+            "trace": [
+              "new MetadataResource (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/private/metadata-resource.ts:60:27)",
+              "/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/private/synthesis.ts:140:5",
+              "visit (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/private/synthesis.ts:200:5)",
+              "visit (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/private/synthesis.ts:196:5)",
+              "injectMetadataResources (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/private/synthesis.ts:131:3)",
+              "Object.synthesize (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/private/synthesis.ts:18:3)",
+              "App.synth (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/stage.ts:188:23)",
+              "process.<anonymous> (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/@aws-cdk/core/lib/app.ts:123:45)",
+              "Object.onceWrapper (node:events:514:26)",
+              "process.emit (node:events:394:28)",
+              "process.emit (node:domain:470:12)",
+              "process.emit (/home/ec2-user/workspace/aws-iot-enhanced-custom-authorizer-demo/mqtt-username-password/node_modules/source-map-support/source-map-support.js:495:21)"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
