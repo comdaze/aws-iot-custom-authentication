@@ -61,7 +61,7 @@ resp=$(aws iot create-authorizer \
 auth_arn=$(echo $resp | jq -r .authorizerArn -)
 ```
 
-现在，我们正在设置MQTT授权器，不指定令牌，并禁用签名。稍后我们将展示如何启用这些功能。
+以上我们设置MQTT授权器，不指定令牌，并禁用签名。。
 
 注意授权器的arn，我们需要它来给AWS IoT服务提供权限，以便在提出新的连接请求时调用这个lambda函数。
 
