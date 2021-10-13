@@ -23,12 +23,12 @@ export class JwtIotCustomAuthorizerStack extends cdk.Stack {
     super(scope, id, props);
 
     let username = new cdk.CfnParameter(this, 'username', {
-      default: 'aladdin',
+      default: 'user1',
       description: 'The username to authenticate the MQTT client'
     })
 
     let password = new cdk.CfnParameter(this, 'password', {
-      default: 'opensesame',
+      default: 'user1',
       description: 'The password to authenticate the MQTT client'
     })
 

@@ -1,203 +1,53 @@
-# Custom Authorizers
+# AWS IoT自定义验证
+有时候客户希望设备采用现有的自定义的验证机制，如用户名密码或者Token，AWS IoT Core可以和客户自定义的验证程序集成，通过IoT Core支持的MQTT，http和websocket协议进行连接。
+设备通过MQTT协议，采用用户名密码进行连接的时序图如下：
+![custom_authorizers_flow](./pics/custom_authorizers_flow.png "custom_authorizers_flow")
 
-This sample code provides two AWS IoT custom authorizers implementations: one that works for WebSocket connections, and one for MQTT connections. It is of course possible combine the two in a single authorizer, but I preferred keeping them separate for readability.
 
-## Prerequisites
+## 前提条件
 
-* An AWS Account
-
-On the developer machine:
+开发者机器:
 * [AWS CDK](https://docs.aws.amazon.com/cdk/latest/guide/getting_started.html)
 * [ASW CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
 
-For the client:
-* Node.js 10 or later
+设备客户端:
+* Node.js 12以上
+* Python3.6以上
 * jq (`sudo apt-get install jq`)
 
-> **DISCLAIMER**: This solution is intended for demo purposes only and should not be used as is in a production environment without further works on the code quality and security.
+> **免责声明**：本解决方案仅用于演示目的，在没有对代码质量和安全性进行进一步研究的情况下，不应该在生产环境中原样使用。
 
 
-## Deploy the backend via CDK
+## 通过CDK部署Lambda授权程序和需要的IAM角色
+自定义授权器后端的Lambda授权程序是通过CDK部署的，你可以在`lib/jwt-iot-custom-authorizer-stack.ts`文件中检查将要创建的资源的定义。
 
-The custom authorizer logic is deployed via the CDK.
-You can examine the definition of the resources that are going to be created in the `lib/jwt-iot-custom-authorizer-stack.ts` file.
-
-Run the following commands to download all the project dependencies and compile the stack:
+运行下面的命令来下载所有项目的依赖项并编译CDK堆栈。:
 
 ```
 npm install
 npm run build
 ```
 
-Finally, you can deploy it with:
+最后，你可以用以下方式部署:
 
 ```
 cdk deploy
 ```
 
-**NOTE**: if this is the first time you use CDK on this AWS account and region the deploy will fail. Read the instructions printed on screen on how to bootstrap the account to be able to use the CDK tool.
+上述命令将打印出几行输出，其中有两个自定义的授权器lambda arn，一个叫做`lambdaArn`，另一个叫做`lambdaArnMqtt`。请记下这些，因为以后会需要它们。
 
-The above commands will print out few output lines, with the 2 custom authorizer lambda arn. one called `lambdaArn` and the other `lambdaArnMqtt`. Please note these down as they will be needed later.
-
-You can change the default values for the username, password and token for the Mqtt authorizer by invoking the `cdk deploy` with the parameters:
+你可以通过调用`cdk deploy'的参数来改变Mqtt授权器的用户名、密码和令牌的默认值。这些参数也是Lambda授权程序的环境变量。
 
 ```
-cdk deploy --parameters username=admin --parameters password=admin --parameters token=XXX
+cdk deploy --parameters username=user1 --parameters password=user1 --parameters token=XXX
 ```
-## WebSocket Custom Authorizer for JSON Web Tokens
+##  MQTT用户名密码方式自定义授权配置
 
-The custom authorizer can validate that the token that is provided is signed with a known key. This prevents malicious users to trigger you custom authorizer lambda function as AWS IoT Core will deny access if the token and the token signature do not match.
+我们将设置一个自定义授权器，为MQTT/TLS连接执行用户名和密码验证。
 
-The token signature is generated using an RSA key. The private key is used by the client to sign the authorization token while the the public key will be associated with the custom authorizer.
+### 采用AWS CLI执行
 
-This signature algorithm is equivalent to the RSA256 algorithm adopted by the JWT token [RFC 7518](https://tools.ietf.org/html/rfc7518#section-3), which means we can use the JWT signature as signature to pass to the authorizer. In this way, AWS IoT Core takes care of validating the signature allowing the Customer Authorizer to trust the JWT.
-
-### Create the signing key pair
-
-To create the key pair follow these steps:
-
-```bash
-openssl genrsa -out myPrivateKey.pem 2048
-openssl rsa -in myPrivateKey.pem -pubout > mykey.pub
-```
-
-The file `mykey.pub` will contain the public key in PEM format that you will need to configure for the authorizer in the next step.
-
-##  Custom authorizer configuration MQTT/WSS
-
-In this step we are going to configure the custom authorizer in AWS IoT Core. You can find more information about custom authorizers in the [documentation](https://docs.aws.amazon.com/iot/latest/developerguide/custom-authorizer.html).
-
-### CLI
-
-We first create the authorizer, giving it a name and associating it with the lambda function that performs the authorization. This lambda function has been created in the previous step. You can examine the code in `lambda/iot-custom-auth/lambda.js`.
-
-```bash
-arn=<lambdaArn from CDK>
-
-resp=$(aws iot create-authorizer \
-  --authorizer-name "TokenAuthorizer" \
-  --authorizer-function-arn $arn \
-  --status ACTIVE \
-  --token-key-name token \
-  --token-signing-public-keys KEY1="-----BEGIN PUBLIC KEY-----
-  ...
-  -----END PUBLIC KEY-----")
-auth_arn=$(echo $resp | jq -r .authorizerArn -)
-```
-
-Note: you can also use the AWS Console to create the Custom Authorizer.
-
-Take note of the arn of the token authorizer. We need it to give the iot service the permission to invoke this lambda function on when a new connection request is made.
-
-```bash
-aws lambda add-permission \
-  --function-name  $arn \
-  --principal iot.amazonaws.com \
-  --statement-id Id-1234 \
-  --action "lambda:InvokeFunction" \
-  --source-arn $auth_arn
-```
-
-### Test the authorizer
-
-
-To test the authorizer you can use one of the provided clients or the `raw-pub-sub` sample clients in some of SDKs. 
-
-For javascript the client is in  `client/javascript` folder and works only for WebSocket. This client uses the [v1 node sdk](https://github.com/aws/aws-iot-device-sdk-js). 
-For python the client is in `client/python/minimal-wss-client.py`.
-
-
-```
-node client/javascript/wss-client-v1.js --key_path <key path> --endpoint <endpoint> --id <id> [--verbose] [--authorizer_name] [--token_name]
-```
-
-```
-python client/python/minimal-wss-client.py --key_path <key path> --endpoint <endpoint> --id <id> [--verbose] [--authorizer_name] [--token_name] [--token] [--signature]
-```
-
-where:
-* **key_path** is the path to the private key PEM encoded file.
-* **endpoint** is the FQDN of your AWS IoT endpoint (get it via `aws iot describe-endpoint --endpoint-type iot:Data-ATS` on from the console).
-* **id** is the client id, thingName.
-* **verbose** prints out the encoded JWT token and signature.
-* **authorizer_name** in case you need to specify another authorizer than TokenAuthorizer.
-* **token_name** in case you need to specify another token key name than token.
-
-For the python client you need also to pass also the token and signature values as the client does not generate them.
-
-You can obtain the values by running 
-
-```
-node client/javascript/token-gen.js --id <id> --key_path <path to private key>
-``` 
-
-
-The client code creates a JWT token as the following and signs it with RSA256 using the private key:
-
-```json
-{
-  "sub": <id>,
-  "exp": 1593699087
-}
-```
-
-The `sub` field in the token is used by the authorizer to scope down the policy for the connection, allowing the client to publish and subscribe to the topic `d/<sub>` and to its own IoT Shadow.
-
-The test client publishes a message to the topic `d/<id>` every 5 sec. Use the [iot console](https://console.aws.amazon.com/iot/home?#/test) to check the messages are being received.
-
-**If you get an error**
-
-To test if the authorizer is setup correctly you can also use the aws cli.
-
-```bash
-aws iot test-invoke-authorizer \
-  --authorizer-name TokenAuthorizer \
-  --token <token> --token-signature <signature>
-```
-
-Use the `--verbose` mode in the authTest.js call to get the token and signature and pass those to the above command.
-
-## Testing with [aws-iot-device-sdk-cpp-v2](https://github.com/aws/aws-iot-device-sdk-cpp-v2)
-
-To test the custom authorizer with the CPP device SDK v2 proceed as follow:
-
-* Clone the github repo
-* Compile the code following the instructions
-* execute the `samples/mqtt/raw-pub-sub` sample with the following args:
-```
-  --endpoint <iot endpoint> 
-  --use_websocket --auth_params token=<token>,x-amz-customauthorizer-name=TokenAuthorizer,x-amz-customauthorizer-signature=<signature> --topic d/<id>
-```
-
-You can get the `token` and `signature` values running 
-```
-node client/javascript/token-gen.js --id <id> --key_path <path to private key>
-``` 
-Use the same value for the `id` used to generate the token in the topic value passed to the client.
-
-You can also use the Java SDK as it provides a [raw-pub-sub](https://github.com/aws/aws-iot-device-sdk-java-v2/tree/master/samples/RawPubSub) implementation.
-
-## About the tokens and security
-
-In this example the client is responsible of signing the token which is obviously not secure, as the client could craft his own privileges or impersonate another device.
-
-The token and its signature should therefore be generated in the backend, and possibly also encrypted. 
-
-Rotations of the token can be implemented via the MQTT protocol, and the only issue to solve would be how to obtain the initial token to the device. This could be done via an external API, a companion app, a registration step, etc. and is out of the scope of this demo.
-
-##  MQTT Custom authorizer configuration
-
-In this second example we are going to setup a new custom authorizer to perform username and password authentication for MQTT/TLS connections.
-
-> **NOTE**: the stack deploys the authorizer with some default values for username, password and token. You can customize them by redeploying the stack with the following command:
-
-```
-cdk deploy --parameters username=<value> --parameters password=<value> --parameters token=<value>      
-```
-
-### CLI
-
-We first create the authorizer, giving it a name and associating it with the lambda function that performs the authorization. This lambda function has been created by the CDK stack you have deployed. You can examine the code in `lambda/iot-mqtt-custom-auth/lambda.js`.
+我们首先创建授权器(authorizer)，给它一个名字，并将其与执行授权的lambda函数联系起来。这个lambda函数已经由你部署的CDK栈创建。你可以在`lambda/iot-mqtt-custom-auth/lambda.js`中查看该代码。.
 
 ```bash
 arn=<lambdaArnMqtt arn from CDK>
@@ -211,9 +61,9 @@ resp=$(aws iot create-authorizer \
 auth_arn=$(echo $resp | jq -r .authorizerArn -)
 ```
 
-For now we are setting up the  MQTT authorizer without specifying a token and with signing disabled. Later we will show how to enable these features.
+现在，我们正在设置MQTT授权器，不指定令牌，并禁用签名。稍后我们将展示如何启用这些功能。
 
-Take note of the arn of the token authorizer, we need it to give the AWS IoT service the permission to invoke this lambda function when a new connection request is made.
+注意授权器的arn，我们需要它来给AWS IoT服务提供权限，以便在提出新的连接请求时调用这个lambda函数。
 
 ```bash
 aws lambda add-permission \
@@ -224,21 +74,25 @@ aws lambda add-permission \
   --source-arn $auth_arn
 ```
 
-### Test the authorizer
+### 测试授权器
 
-For this test we provide a Python client using the Python AWS Crt libraries.
+对于这个测试，我们提供一个使用Python AWS Crt库的Python客户端。
+先获得IoT endpoint，可以执行：
+```
+aws iot describe-endpoint --endpoint-type iot:Data-ATS
+```
+然后执行Python客户端
+```
+pip3 install -r requirements.txt
+python3 client/python/minimal-mqtt-client.py --username user1 --password user1 --topic d/user1 --endpoint <endpoint> --authorizer-name MqttAuthorizer
+```
+可以用下面的命令将授权者配置为账户的默认授权者。
 
 ```
-pip install -r requirements.txt
-python client/python/minimal-mqtt-client.py --username aladdin --password opensesame --topic d/aladdin --endpoint <endpoint>
+aws iot set-default-authorizer --authorizer-name MqttAuthorizer
 ```
 
-Where
-* **endpoint** is the FQDN of your AWS IoT endpoint (get it via `aws iot describe-endpoint --endpoint-type iot:Data-ATS` on from the console)
-
-The difference from this code and the stock [pub-sub](https://github.com/aws/aws-iot-device-sdk-python-v2/blob/master/samples/pubsub.py) sample is in the initialization of the client, and in particular in the setup of the TLS context. 
-
-The relevant lines are the following:
+Python客户端关键代码如下:
 
 ```python
 tls_options = io.TlsContextOptions()
@@ -267,91 +121,3 @@ mqtt_connection = mqtt.Connection(client=client,
     password=args.password)
 
 ```
-
-You need to provide an authorizer name that will be appended to the `username` unless you have configured the authorizer as the default one for the account using the following command:
-
-```
-aws iot set-default-authorizer --authorizer-name MqttAuthorizer
-```
-
-
-### Use a token instead of username/password
-
-Instead of using username/password for MQTT authentication, you can also use a bearer token. In this case you will need to specify a token name when creating the authorizer and you can use the signing option to better secure your endpoint. We are not going to enable signing in this example. 
-
-Let's create a new authorizer using the same authorizer lambda that already has code to use the token:
-
-```bash
-arn=<lambdaArnMqtt arn from CDK>
-
-resp=$(aws iot create-authorizer \
-  --authorizer-name "MqttTokenAuthorizer" \
-  --authorizer-function-arn $arn \
-  --status ACTIVE
-  --token-key-name token
-  --signing-disabled)
-
-auth_arn=$(echo $resp | jq -r .authorizerArn -)
-
-aws lambda add-permission \
-  --function-name  $arn \
-  --principal iot.amazonaws.com \
-  --statement-id Id-1234 \
-  --action "lambda:InvokeFunction" \
-  --source-arn $auth_arn
-```
-
-To test it, execute the client with the following options:
-
-```bash
-endpoint=$(aws iot describe-endpoint --type data:iot-ats)
-python client/python/minimal-mqtt-client.py --endpoint $endpoint \
-  --topic d/aladdin --token allow --authorizer-name MqttTokenAuthorizer \
-  --username aladdin --password dummy
-```
-
-You can also test the MQTT/TLS connection with the `raw-pub-sub` sample client available in the [Java](https://github.com/aws/aws-iot-device-sdk-java-v2) 
-and [CPP](https://github.com/aws/aws-iot-device-sdk-cpp-v2) SDKs.
-
-## Using the embedded C SDK
-
-To test the MQTT/TLS custom authorizer with the [embedded C SDK](https://github.com/aws/aws-iot-device-sdk-embedded-C), you can use the `demos/mqtt/mqtt_demo_mutual_auth`.
-
-```
-git clone https://github.com/aws/aws-iot-device-sdk-embedded-C
-```
-
-Open the `demos/mqtt/mqtt_demo_mutual_auth\demo_config.h` include file and specify values for:
-* CLIENT_PRIVATE_KEY_PATH
-* CLIENT_USERNAME
-* CLIENT_PASSWORD
-
-Open the `demos/mqtt/mqtt_demo_mutual_auth\demo_config.h` and change the value for:
-* MQTT_EXAMPLE_TOPIC
-
-to `d/<username>` or whatever you have setup the policy returned by the custom authorizer to return.
-
-Once done, in the terminal you would do:
-
-```
-mkdir build
-cd build
-cmake ..
-make mqtt_demo_mutual_auth
-bin/mqtt_demo_mutual_auth
-```
-
-## Using Custom Domains
-
-When using Custom Domains you need to configure the authorizer on the domain using the following API https://docs.aws.amazon.com/iot/latest/apireference/API_UpdateDomainConfiguration.html
-
-
-```
-aws iot update-domain-configuration --domain-configuration-name <DOMAIN_CONF_NAME> \
-     --authorizer-config defaultAuthorizerName=<AUTHORIZER_NAME>
-``` 
-
-
-
-
-

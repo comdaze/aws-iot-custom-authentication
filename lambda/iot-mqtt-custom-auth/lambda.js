@@ -63,17 +63,17 @@ function buildPolicy (username, authenticated) {
                             "Action": "iot:Subscribe",
                             "Effect": "Allow",
                             "Resource": [
-                                `arn:aws:iot:${process.env.AWS_REGION}:${process.env.AWS_ACCOUNT}:topicfilter/d/${username}`,
-                                `arn:aws:iot:${process.env.AWS_REGION}:${process.env.AWS_ACCOUNT}:topicfilter/$aws/things/${username}/shadow/get/accepted`
+                                `arn:aws-cn:iot:${process.env.AWS_REGION}:${process.env.AWS_ACCOUNT}:topicfilter/d/${username}`,
+                                `arn:aws-cn:iot:${process.env.AWS_REGION}:${process.env.AWS_ACCOUNT}:topicfilter/$aws/things/${username}/shadow/get/accepted`
                             ]
                         },
                         {
                             "Action": ["iot:Receive", "iot:Publish"], // Publish permission of d/<id> only for testing
                             "Effect": "Allow",
                             "Resource": [
-                                `arn:aws:iot:${process.env.AWS_REGION}:${process.env.AWS_ACCOUNT}:topic/d/${username}`,
-                                `arn:aws:iot:${process.env.AWS_REGION}:${process.env.AWS_ACCOUNT}:topic/$aws/things/${username}/shadow/get`,
-                                `arn:aws:iot:${process.env.AWS_REGION}:${process.env.AWS_ACCOUNT}:topic/$aws/things/${username}/shadow/get/accepted`
+                                `arn:aws-cn:iot:${process.env.AWS_REGION}:${process.env.AWS_ACCOUNT}:topic/d/${username}`,
+                                `arn:aws-cn:iot:${process.env.AWS_REGION}:${process.env.AWS_ACCOUNT}:topic/$aws/things/${username}/shadow/get`,
+                                `arn:aws-cn:iot:${process.env.AWS_REGION}:${process.env.AWS_ACCOUNT}:topic/$aws/things/${username}/shadow/get/accepted`
                             ]
                         }
                     ]
